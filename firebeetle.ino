@@ -1,19 +1,19 @@
 #include <WiFi.h>
 #include <HTTPClient.h>
 
-const char* ssid     = "Gpui";
-const char* password = "gena1234";
+const char* ssid     = "your_ssid";
+const char* password = "your_pwd";
 
 // You can get the below information from IFTTT applet
 String server = "https://maker.ifttt.com";
 String evenName = "sensor_data";
-String IFTTT_Key = "ch7j-r0W78OtwDPovTi7H4";
-String IFTTTUrl = "https://maker.ifttt.com/trigger/sensor_data/with/key/ch7j-r0W78OtwDPovTi7H4";
+String IFTTT_Key = "your_IFTTT_Key";
+String IFTTTUrl = "your_IFTTTUrl";
 
 // simualted data values to be written to google sheet
 int value1;
 int value2;
-int value3;
+String value3;
 
 void setup()
 {
@@ -31,7 +31,7 @@ void setup()
 
 void sendDataToSheet(void)
 {
-  String url = server + "/trigger/" + evenName + "/with/key/" + IFTTT_Key + "?value1=" + String((int)value1) + "&value2=" + String((int)value2) + "&value3=" + "Class1" ; 
+  String url = server + "/trigger/" + evenName + "/with/key/" + IFTTT_Key + "?value1=" + String((int)value1) + "&value2=" + String((int)value2) + "&value3=" + value3 ; 
 
   Serial.print(url);
 
@@ -60,7 +60,7 @@ void loop()
 {    
     value1 = random(0,10);
     value2 = random(-10,0);
-    value3 = cnt;
+    value3 = "Class1";
 
     sendDataToSheet();
     delay(2000);

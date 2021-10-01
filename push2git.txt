@@ -2,7 +2,7 @@ force push
 
 git init
 git add -A
-git commit -m 'Added my project'
+git commit -m "Added my project"
 git remote add origin https://github.com/paub21/nodemcu2gsheet.git
 git push -u -f origin main
 
